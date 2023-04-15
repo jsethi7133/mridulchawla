@@ -1,11 +1,29 @@
 <html>
 <head>
 <title> Mridul Chawla </title>
-<link rel="stylesheet" href="styles.css">
+	<style>
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
 </head>
 
 <body>
-<script src="myscripts.js"></script>
 <!---header--->
 <div id="navbar">
 <table border="0" width="100%" cellspacing="0" bgcolor="#673de6">
@@ -221,6 +239,21 @@
 
 </td></tr>
 </table>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 
 </body>
 </html>
